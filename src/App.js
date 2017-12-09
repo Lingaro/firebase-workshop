@@ -1,21 +1,39 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
+import DataGrid from './DataGrid';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: {}
+    }
+  }
+
+  dataChange(row, column, event) {
+    const data = _.merge({}, this.state.data, {
+      [row]: {
+        [column] : event.target.value
+      }
+    });
+    this.setState({ data });
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to Firebase</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <DataGrid data={this.state.data} changeHandler={this.dataChange.bind(this)}/>
       </div>
     );
   }
 }
+
 
 export default App;

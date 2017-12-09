@@ -22,7 +22,29 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.login-panel {
+  margin-top: 15px;  
+}
+
+.login-panel>.login-button {
+  margin-top: 5px;
+  background: #4285f4;
+  color: white;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.user-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  color: white; 
+}
+
+.user-panel>button {
+  margin-left: 5px;
 }
